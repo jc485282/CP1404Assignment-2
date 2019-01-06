@@ -33,7 +33,7 @@ class SongList:
         return learned_songs
 
 
-    def load_songs(self):
+    def load_to_csv(self):
 
         filereader = open('songs.csv', 'r')
         for song in filereader:

@@ -7,6 +7,7 @@ from kivy.uix.textinput import TextInput
 from Songslist import SongList
 
 class SongsList(App):
+
     def __init__(self, **kwargs):
 
         super().__init__(**kwargs)
@@ -136,6 +137,21 @@ class SongsList(App):
 
 
 
+
+
+    def sorting_songs(self, *args):
+        self.song_list.sorting(self.spinner.text)
+        self.root.ids.rightLayout.clear_widgets()
+        self.build_right_widgets()
+
+    def on_stop(self):
+
+        self.song_list.load_to_csv()
+
+
+if __name__ == '__main__':
+    app = SongsList()
+    app.run()
 
 
 
