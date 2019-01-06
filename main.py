@@ -89,9 +89,33 @@ class SongsList(App):
         self.root.ids.leftLayout.add_widget(self.append_Songs_button)
         self.root.ids.leftLayout.add_widget(self.clear_button)
         self.root.ids.topLayout.add_widget(self.top_label)
-        self.spinner.bind(text=self.song_sorter)
+        self.spinner.bind(text=self.sorting_songs)
         self.append_Songs_button.bind(on_release=self.append_Songs_handler)
         self.clear_button.bind(on_release=self.fields_text_clearer)
+
+    def learn_Songs(self, button):
+        if self.song_list.song_get(button.id).status == 'n':
+            self.song_list.song_get(button.id).status = 'y'
+            self.root.ids.bottomLayout.text = "You need to learn " + str(self.song_list.song_get(button.id).title)
+
+        else:
+            self.song_list.song_get(button.id).status = 'n'
+            self.root.ids.bottomLayout.text = "You have learnt " + str(self.song_list.song_get(button.id).title)
+
+        self.sorting_songs()
+        self.root.ids.rightLayout.clear_widgets()
+        self.build_right_widgets()
+
+
+
+
+
+
+
+
+
+
+
 
 
 
