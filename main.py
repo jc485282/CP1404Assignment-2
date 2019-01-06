@@ -23,6 +23,18 @@ class SongsList(App):
         self.year_label = Label(text="Year:")
         self.year_text_input = TextInput(write_tab=False, multiline=False)
 
+        self.append_Songs_button = Button(text='Add Song')
+        self.clear_button = Button(text='Clear')
+
+    def append_Songs_handler(self, *args):
+
+
+        if str(self.title_text_input.text).strip() == '' or str(self.artist_text_input.text).strip() == '' or str(
+                self.year_text_input.text).strip() == '':
+            self.root.ids.bottomLayout.text = "All fields must be completed"
+        else:
+
+
 
 
 
