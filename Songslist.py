@@ -43,6 +43,18 @@ class SongList:
 
         filereader.close()
 
+    def sorting(self, sort_method):
+        if sort_method == "Artist":
+            self.songs.sort(key=lambda i: (i[0].artist, i[0].title))
+        elif sort_method == "Title":
+            self.songs.sort(key=lambda i: i[0].title)
+        elif sort_method == "Year":
+            self.songs.sort(key=lambda i: (i[0].year, i[0].title))
+        else:
+            self.songs.sort(key=lambda i: (i[0].status, i[0].title))
+
+
+
 
 
 
