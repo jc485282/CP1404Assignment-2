@@ -106,6 +106,29 @@ class SongsList(App):
         self.root.ids.rightLayout.clear_widgets()
         self.build_right_widgets()
 
+    def build_right_widgets(self):
+
+            self.top_label.text = "To Learn: " + str(self.song_list.tolearn_songs_count()) + ". Learnt: " + str(
+                self.song_list.learned_songs_count())
+
+            for song in self.song_list.songs:
+                if song[0].status == 'n':
+                    song_button = Button(text='"' + song[0].title + '"' + " by " + song[0].artist + " (" + str(
+                        song[0].year) + ") " "(Learnt)", id=song[0].title)
+
+                    song_button.background_color = [88, 89, 0, 0.3]
+                else:
+                    song_button = Button(
+                        text='"' + song[0].title + '"' + " by " + song[0].artist + " (" + str(song[0].year) + ")",
+                        id=song[0].title)
+
+                    song_button.background_color = [0, 88, 88, 0.3]
+
+                song_button.bind(on_release=self.learn_Songs)
+                self.root.ids.rightLayout.add_widget(song_button)
+
+
+
 
 
 
