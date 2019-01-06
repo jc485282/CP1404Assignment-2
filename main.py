@@ -15,7 +15,7 @@ class SongsList(App):
         self.status_label = Label(text="")
         self.sort_label = Label(text="Sort by:")
         self.spinner = Spinner(text='Artist', values=('Artist', 'Title', 'Year', 'Required'))
-        self.song_adder_label = Label(text="Add Song...")
+        self.append_Songs_label = Label(text="Add Song...")
         self.title_label = Label(text="Title:")
         self.title_text_input = TextInput(write_tab=False, multiline=False)
         self.artist_label = Label(text="Artist:")
