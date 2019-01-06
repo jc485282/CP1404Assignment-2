@@ -6,3 +6,23 @@ from kivy.uix.spinner import Spinner
 from kivy.uix.textinput import TextInput
 from Songslist import SongList
 
+class SongsList(App):
+    def __init__(self, **kwargs):
+
+        super().__init__(**kwargs)
+        self.song_list = SongList()
+        self.top_label = Label(text="", id="count_label")
+        self.status_label = Label(text="")
+        self.sort_label = Label(text="Sort by:")
+        self.spinner = Spinner(text='Artist', values=('Artist', 'Title', 'Year', 'Required'))
+        self.song_adder_label = Label(text="Add Song...")
+        self.title_label = Label(text="Title:")
+        self.title_text_input = TextInput(write_tab=False, multiline=False)
+        self.artist_label = Label(text="Artist:")
+        self.artist_text_input = TextInput(write_tab=False, multiline=False)
+        self.year_label = Label(text="Year:")
+        self.year_text_input = TextInput(write_tab=False, multiline=False)
+
+
+
+

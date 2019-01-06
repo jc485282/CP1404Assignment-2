@@ -35,7 +35,7 @@ class SongList:
 
     def load_songs(self):
 
-        filereader = open('song.csv', 'r')
+        filereader = open('songs.csv', 'r')
         for song in filereader:
             song_string = song.split(",")
             self.songs.append(
