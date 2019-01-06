@@ -65,6 +65,36 @@ class SongsList(App):
             except ValueError:
                 self.root.ids.bottomLayout.text = "Please enter a valid number"
 
+    def build(self):
+
+        self.title = "Songs to learn 2.0"
+        self.root = Builder.load_file('app.kv')
+        self.song_list.load_songs()
+        self.song_list.sorting('Artist')
+        self.build_left_widgets()
+        self.build_right_widgets()
+        return self.root
+
+
+    def build_left_widgets(self):
+        self.root.ids.leftLayout.add_widget(self.sort_label)
+        self.root.ids.leftLayout.add_widget(self.spinner)
+        self.root.ids.leftLayout.add_widget(self.append_Songs_label)
+        self.root.ids.leftLayout.add_widget(self.title_label)
+        self.root.ids.leftLayout.add_widget(self.title_text_input)
+        self.root.ids.leftLayout.add_widget(self.artist_label)
+        self.root.ids.leftLayout.add_widget(self.artist_text_input)
+        self.root.ids.leftLayout.add_widget(self.year_label)
+        self.root.ids.leftLayout.add_widget(self.year_text_input)
+        self.root.ids.leftLayout.add_widget(self.append_Songs_button)
+        self.root.ids.leftLayout.add_widget(self.clear_button)
+        self.root.ids.topLayout.add_widget(self.top_label)
+        self.spinner.bind(text=self.song_sorter)
+        self.append_Songs_button.bind(on_release=self.append_Songs_handler)
+        self.clear_button.bind(on_release=self.fields_text_clearer)
+
+
+
 
 
 
