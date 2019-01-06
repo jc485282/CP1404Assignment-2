@@ -127,6 +127,16 @@ class SongsList(App):
                 song_button.bind(on_release=self.learn_Songs)
                 self.root.ids.rightLayout.add_widget(song_button)
 
+    def fields_text_clearer(self, *args):
+
+        self.title_text_input.text = ""
+        self.artist_text_input.text = ""
+        self.year_text_input.text = ""
+        self.root.ids.bottomLayout.text = ""
+
+
+
+
 
 
 
