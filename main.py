@@ -27,12 +27,46 @@ class SongsList(App):
         self.clear_button = Button(text='Clear')
 
     def append_Songs_handler(self, *args):
-
-
         if str(self.title_text_input.text).strip() == '' or str(self.artist_text_input.text).strip() == '' or str(
                 self.year_text_input.text).strip() == '':
             self.root.ids.bottomLayout.text = "All fields must be completed"
         else:
+            try:
+
+                if int(self.year_text_input.text) < 0:
+                    self.root.ids.bottomLayout.text = "Year must be >= 0"
+                else:
+                    self.song_list.append_Songs(self.title_text_input.text, self.artist_text_input.text,
+                                            int(self.year_text_input.text))
+                    self.song_list.sorting(self.spinner.text)
+                    self.fields_text_clearer()
+                    self.root.ids.rightLayout.clear_widgets()
+                    self.build_right_widgets()
+
+            except ValueError:
+                self.root.ids.bottomLayout.text = "Please enter a valid number"
+
+
+        if str(self.title_text_input.text).strip() == '' or str(self.artist_text_input.text).strip() == '' or str(
+                self.year_text_input.text).strip() == '':
+            self.root.ids.bottomLayout.text = "All fields must be filled"
+        else:
+            try:
+
+                if int(self.year_text_input.text) < 0:
+                    self.root.ids.bottomLayout.text = "Year must be >= 0"
+                else:
+                    self.song_list.append_Songs(self.title_text_input.text, self.artist_text_input.text,
+                                            int(self.year_text_input.text))
+                    self.song_list.sorting(self.spinner.text)
+                    self.fields_text_clearer()
+                    self.root.ids.rightLayout.clear_widgets()
+                    self.build_right_widgets()
+            except ValueError:
+                self.root.ids.bottomLayout.text = "Please enter a valid number"
+
+
+
 
 
 
