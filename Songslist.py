@@ -33,7 +33,7 @@ class SongList:
         return learned_songs
 
 
-    def load_to_csv(self):
+    def load_songs(self):
 
         filereader = open('Songs.csv', 'r')
         for song in filereader:
@@ -42,6 +42,17 @@ class SongList:
                 [Song(song_string[0], song_string[1], int(song_string[2]), song_string[3].strip())])
 
         filereader.close()
+
+    def load_to_csv(self):
+        filewriter = open('songs.csv', 'w')
+        for song in self.songs:
+            filewriter.write(
+                song[0].title + "," + song[0].artist + "," + str(song[0].year) + "," + song[
+                    0].status + "\n")
+
+        filewriter.close()
+
+
 
     def sorting(self, sort_method):
         if sort_method == "Artist":
